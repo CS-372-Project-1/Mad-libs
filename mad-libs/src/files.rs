@@ -19,29 +19,25 @@ pub fn read_file() -> String {
 pub fn parse_words(story:&str) -> Vec<String> {
     // Read tokens ({}) into vector of strings
     // return vector
-    let words = story.split("{ ").flat_map(|s| s.split(" }"));
-    let split_vec = words.collect::<Vec<&str>>();
+
     let mut word_vec: Vec<String> = vec![];
-    for word in split_vec.iter() {
-        if !word.contains(" ") {
-            word_vec.push(word.to_string());
-        }
+    let regex = Regex::new(r"\{[ \w\d_()]*\}").unwrap();
+
+    for caps in regex.captures_iter(story) {
+        let mut reg_match = caps.get(0).unwrap().as_str().to_string();
+        reg_match = reg_match.replace("{ ", "");
+        reg_match = reg_match.replace(" }", "");
+        word_vec.push(reg_match);
     }
 
     return word_vec;
 }
 
 pub fn replace_words(story:&str, words:Vec<String>) -> String {
-    let regex = Regex::new(r"/\{(?P<word>[^{]*)([^}])\}/g").unwrap();
+    let regex = Regex::new(r"\{[ \w\d_()]*\}").unwrap();
     let mut result: String = story.to_string();
-    // for word in words.iter() {
-    //     //result = regex.replace(&result, word.to_uppercase()).to_string();
-    //     println!("Regex: {:?}", regex.replace(&result, |caps: &Captures|));
-    // }
-
-    for caps in regex.captures_iter(story) {
-        println!("Word: {:?}",
-                 &caps["word"]);
+    for word in words.iter() {
+        result = regex.replace(&result, word.to_uppercase()).to_string();
     }
 
     return result;
