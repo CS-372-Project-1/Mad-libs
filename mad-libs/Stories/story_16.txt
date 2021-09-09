@@ -1,0 +1,2 @@
+Create a New Sport
+I have an idea for a new sport, { Noun }-ball. Each team has { Number } players, and there are { Number } of them { Verb Ending in -Ing } at a time. The game uses a { Noun } as a ball, and the goal is to get it into one of the { Noun (Plural) } using only your { Part of the Body }. The game ends when one team { Verb (Present Tense) } or after { Number } minutes. I think this game could be really { Adjective }!

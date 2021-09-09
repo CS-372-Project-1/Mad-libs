@@ -1,0 +1,7 @@
+Cookie Recipe
+Here are the steps to make delicious cookies!
+1. Grab a { Noun } and grease it.
+2. Mix together { Food Item }, { Food Item }, and { Food Item } in a { Size } bowl.
+3. { Adverb } { Verb } in the { Food Item } until { Adjective }.
+4. Preheat { Kitchen Appliance } to { Temperature } and { Verb } for { Amount of Time }.
+Now you have cookies!
