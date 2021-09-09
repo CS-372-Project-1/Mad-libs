@@ -7,17 +7,17 @@ fn main() {
     println!("Hello, and welcome to Mad Libs!");
     println!("Let's get started!");
     let story = files::read_file();
-    let words: Vec<String> = files::parse_words(&story);
+    let words: Vec<String> = game::parse_words(&story);
     println!("Words: {:?}", words);
     // Need to get user input here
-    let new_story = files::replace_words(&story, words); // should be called with user input
+    let new_story = game::replace_words(&story, words); // should be called with user input
     println!("New Story: {}", new_story);
 }
 
 // Use hash map: loop through word types, add to map if not seen,
 // otherwise add user input to 
 
-pub fn initializeMap(words:Vec<String>) -> HashMap<String, Vec<String>> {
+pub fn initialize_map(words:Vec<String>) -> HashMap<String, Vec<String>> {
     let mut input_map: HashMap<String, Vec<String>> = HashMap::new();
     
     for word in words.iter() {
@@ -28,4 +28,14 @@ pub fn initializeMap(words:Vec<String>) -> HashMap<String, Vec<String>> {
     }
 
     return input_map;
+}
+
+pub fn fill_map(user_input:Vec<(String, String)>, map:HashMap<String, Vec<String>>)
+    -> HashMap<String, Vec<String>> {
+        for input_group in user_input {
+            let v = map.get_mut(&input_group.0).unwrap();
+            v.push(input_group.1);
+        }
+
+        return map;
 }
