@@ -1,6 +1,5 @@
 use rand::Rng;
 use std::fs;
-use regex::Regex;
 
 pub fn read_file() -> String {
     // Pick a random number to choose the file
