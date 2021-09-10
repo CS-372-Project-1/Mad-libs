@@ -12,9 +12,10 @@ fn main() {
         let story = files::read_file();
         let words: Vec<String> = game::parse_words(&story);
         println!("Words: {:?}", words);
-        let mut map = get_user_input();
-        let new_story = game::replace_words(&story, map); // should be called with user input
-        println!("New Story: {}", new_story);
+        let map = initialize_map(words);
+        let mut matches = get_user_input();
+        let new_story = game::replace_words(&story, fill_map(matches, map)); // should be called with user input
+        println!("Your Story: {}", new_story);
         println!();
         println!("Would you like to play again? (Y/N)");
         let mut user_input = String::new();

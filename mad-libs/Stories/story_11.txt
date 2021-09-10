@@ -1,4 +1,5 @@
 Sing Along
+
 I heard a great song on the radio last night! How did it go again?
 { Name } had a(n) { Adjective } { Noun },
 { Adjective } { Noun },
