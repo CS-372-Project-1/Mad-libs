@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::io;
 
 mod files;
 mod game;
@@ -38,4 +39,10 @@ pub fn fill_map(user_input:Vec<(String, String)>, map:HashMap<String, Vec<String
         }
 
         return map;
+}
+
+pub fn get_user_input() {    
+    let mut in_str = String::new();
+    // loop to fill global hashmap
+    io::stdin().read_line(&mut in_str).expect("Error: Please input a word");
 }
