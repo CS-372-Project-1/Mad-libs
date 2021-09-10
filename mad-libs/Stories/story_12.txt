@@ -1,6 +1,0 @@
-Sing Along Redux
-I heard another great song on the radio, but I still can’t remember the lyrics! I think it went like:
-{ Verb } { Verb } { Verb } your { Noun },
-{ Adverb } down the { Noun }.
-{ Adverb } { Adverb } { Adverb } { Adverb },
-Life is but a(n) { Noun }.
