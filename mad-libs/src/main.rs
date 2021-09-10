@@ -4,6 +4,8 @@ use std::io;
 mod files;
 mod game;
 
+static mut MAP: HashMap<String, Vec<String>> = HashMap::new();
+
 fn main() {
     println!("Hello, and welcome to Mad Libs!");
     println!("Let's get started!");
@@ -18,27 +20,20 @@ fn main() {
 // Use hash map: loop through word types, add to map if not seen,
 // otherwise add user input to 
 
-pub fn initialize_map(words:Vec<String>) -> HashMap<String, Vec<String>> {
-    let mut input_map: HashMap<String, Vec<String>> = HashMap::new();
-    
+pub fn initialize_map(words:Vec<String>) {
     for word in words.iter() {
-        if !input_map.contains_key(word) {
+        if !MAP.contains_key(word) {
             let empty_vec: Vec<String> = Vec::new();
-            input_map.insert(word.to_string(), empty_vec);
+            MAP.insert(word.to_string(), empty_vec);
         }
     }
-
-    return input_map;
 }
 
-pub fn fill_map(user_input:Vec<(String, String)>, map:HashMap<String, Vec<String>>)
-    -> HashMap<String, Vec<String>> {
+pub fn fill_map(user_input:Vec<(String, String)>) {
         for input_group in user_input {
-            let v = map.get_mut(&input_group.0).unwrap();
+            let v = MAP.get_mut(&input_group.0).unwrap();
             v.push(input_group.1);
         }
-
-        return map;
 }
 
 pub fn get_user_input() {    
